@@ -2,17 +2,17 @@ var objc = JSON.parse($response.body);
 
 objc = {
   "links": {
-    "self": "http://www.veed.io/v1/user/5A91171A-4A33-47B8-BFBD-3C699921D4FC/mobile"
+    "self": "http://www.veed.io/v1/user/" + objc.data.id + "/mobile"
   },
   "data": {
     "status": "verified",
-    "thumbnail": null,
-    "thumbnailAssetId": null,
-    "id": "5a91171a-4a33-47b8-bfbd-3c699921d4fc",
-    "mobileId": "$VEEDMobileID:76e867db-53de-4483-b419-31b334c0825f",
+    "thumbnail": objc.data.thumbnail,
+    "thumbnailAssetId": objc.data.thumbnailAssetId,
+    "id": objc.data.id,
+    "mobileId": objc.data.mobileId,
     "trainingDataConsent": true,
-    "email": "explicit7x@icloud.com",
-    "createdAt": "2026-08-19T10:34:53.896Z",
+    "email": objc.data.email,
+    "createdAt": objc.data.createdAt,
     "onboarded": true,
     "name": "VEED Premium User",
     "subscription": {
@@ -28,8 +28,7 @@ objc = {
         "premium_templates",
         "advanced_editing",
         "cloud_storage",
-        "priority_support",
-        "all_premium_features"
+        "priority_support"
       ],
       "productId": "veed.premium.yearly",
       "orderId": "VEED_PREMIUM_2026",
@@ -40,6 +39,6 @@ objc = {
     "credits": 999999,
     "storageLimit": "unlimited"
   }
-}
+};
 
 $done({ body: JSON.stringify(objc) });
